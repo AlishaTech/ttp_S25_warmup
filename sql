@@ -1,24 +1,39 @@
 -- WHERE Clause exercises: every query builds on the previous
 
 -- grab all data from the film table
+SELECT *
+FROM film;
 
 
 -- English films only : return all films that have a language ID of 1
 -- (note: we already know this happens to be all the films in the database
 -- but let's make sure we know how to do this IF there was multiple languages)
 
+SELECT language_id
+FROM film
+WHERE language_id = 1;
 
--- English films for todlers
+-- English films for toddlers
 -- return all films with language ID of 1 and is rated G
 
+SELECT language_id, rating
+FROM film
+WHERE language_id = 1 AND rating is 'G';
 	  
 -- Family friendly English films
 -- return all films with language ID of 1 and is rated G, PG, or PG-13
 
+SELECT language_id, rating
+FROM film
+WHERE language_id = 1 AND rating is "G", "PG", OR "PG-13";
 
 -- Family friendly English films on a budget:
 -- return all films with language ID of 1 and is rated G, PG, or PG-13,
--- and have a rental rate less than $3 and a replacement cost less than $10
+-- and have a rental rate less than $3 and a replacement cost less than $10 
+
+SELECT language_id, rating, rental_rate, replacement_cost
+FROM film
+WHERE language_id = 1 AND rating is "G", "PG", OR "PG-13" AND rental_rate < 3 AND replacement_cost < 10;
 
 	  
 -- Nostalgiac family friendly English films on a budget with a short attention span!:
